@@ -1,2 +1,9 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<main>
+  <div class="text-center pt-5">
+    <p>
+      サイトの概要を書く
+    </p>
+    <%= link_to "みんなの投稿はこちら",posts_path,class: "btn btn-info" %><br/>
+    <%= link_to "新規登録はこちら",new_user_registration_path,class: "btn btn-success mt-3 px-4" %>
+  </div>
+</main>

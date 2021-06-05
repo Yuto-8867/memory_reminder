@@ -1,2 +1,11 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h2>思い出を残す</h2>
+<%= form_with model: @post, local:true do |f| %>
+<p>写真</p>
+<%= f.attachment_field :image %>
+<p>名前</p>
+<%= f.text_field :name %>
+<p>内容</p>
+<%= f.text_area :content %>
+<%= f.submit "記録" %>
+
+<% end %>
