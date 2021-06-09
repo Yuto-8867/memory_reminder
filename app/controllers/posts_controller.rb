@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!,except: [:index]
+
   def new
     @post = Post.new
   end
@@ -11,11 +14,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
   end
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
+    @post_comments = @post.post_comments
   end
 
   def edit
@@ -37,6 +42,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name,:image,:content)
+    params.require(:post).permit(:name,:image,:content,:title)
   end
 end

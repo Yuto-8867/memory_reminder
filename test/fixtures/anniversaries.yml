@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
-  content: MyString
-  date: 2021-06-04
+  title: MyString
+  body: MyText
+  disp_flg: false
+  start: 2021-06-08 11:53:20
+  end: 2021-06-08 11:53:20
+  allDay: MyString
 
 two:
-  user_id: 1
-  content: MyString
-  date: 2021-06-04
+  title: MyString
+  body: MyText
+  disp_flg: false
+  start: 2021-06-08 11:53:20
+  end: 2021-06-08 11:53:20
+  allDay: MyString

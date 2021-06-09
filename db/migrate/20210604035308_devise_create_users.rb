@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :hobby
       t.string :favorite_time
       t.string :login_name
-      t.string :profile_image_url
+      t.string :profile_image_id
 
       t.timestamps null: false
     end

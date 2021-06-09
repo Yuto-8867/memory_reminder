@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:login_name,:nickname,:favorite_food,:hobby,:favorite_time,:is_valid,:profile_image_url])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email,:login_name,:nickname,:favorite_food,:hobby,:favorite_time,:is_valid,:profile_image_url])
   end
 end

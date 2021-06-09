@@ -20,7 +20,7 @@
                 <li class="navbar-item pr-5"><%= link_to "マイページ",user_path(current_user.id),class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "みんなの思い出", posts_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "思い出を残す",new_post_path,class: "nav-link" %></li>
-                <li class="navbar-item pr-5"><%= link_to "記念日",anniversaries_path,class: "nav-link" %></li>
+                <li class="navbar-item pr-5"><%= link_to "記念日",posts_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "ログアウト",destroy_user_session_path,method: :delete,class: "nav-link" %></li>
               </ul>
             </div>
@@ -49,5 +49,10 @@
         </div>
       <% end %>
     <%= yield %>
+    <footer class="mt-5">
+      <div class="wrapper bg-light text-center" style="height: 70px;">
+        <p class="pt-4"><small>&copy; 2021 Memory Reminder</small></p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,20 +1,24 @@
-<h1 class="p-4">投稿一覧</h1>
-<% @posts.each do |post| %>
-  <div class="card mb-3 mx-auto" style="max-width: 800px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%= link_to post_path(post.id) do %>
-        <%= attachment_image_tag post,:image,width: "140",class: "card-img" %>
+<div class="post-contents wrappe">
+  <% @posts.each do |post| %>
+  <article class="p-5 mt-5 ml-5">
+    <header class="post-info">
+      <h2 class="post-title"><%= post.title %></h2>
+      <p class="post-date"><%= post.created_at.strftime("%m月%d日")%><span><%= post.created_at.strftime("%Y") %></span></p>
+      <p class="post-cat">投稿者:<%= post.name %>
+        <% if current_user %>
+          <%= link_to "#{post.post_comments.count}コメント",post_path(post.id), class: "ml-4" %>
+          <span id="favorites_buttons_<%= post.id %>"><%= render partial: 'posts/post', locals: { post: post} %></span>
         <% end %>
-      </div>
-        <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= post.created_at.strftime('%Y/%m/%d') %></h5>
-          <p class="card-text"><%= post.content %></p>
-          <p class="card-text"><small class="text-muted">投稿者:<%= post.name %></small></p>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+      </p>
+    </header>
+    <% if current_user %>
+      <%= link_to post_path(post), class: "mb-4 p-5 m-5" do %>
+      <%= attachment_image_tag post, :image %>
+      <% end %>
+    <% else %>
+      <p class="px-5 mx-5"><%= attachment_image_tag post, :image %></p>
+    <% end %>
+    <p class="px-5 mx-5 mt-3"><%= post.content %></p>
+  </article>
+  <% end %>
+</div>

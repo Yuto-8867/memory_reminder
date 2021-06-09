@@ -1,0 +1,3 @@
+$("#js-post-comment-tbody").append("<%= j(render 'table_row', { post_comment: @post_comment }) %>");
+$("#comments-count").html("コメント<%= @post.post_comments.count %>件");
+$("textarea").val('');

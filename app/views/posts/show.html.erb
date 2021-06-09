@@ -1,19 +1,46 @@
-<h2 class="p-4">投稿詳細</h2>
-<div class="card mb-3 mx-auto mt-5" style="max-width: 800px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%= attachment_image_tag @post,:image,width: "140",class: "card-img" %>
-      </div>
-        <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= @post.created_at.strftime('%Y/%m/%d') %></h5>
-          <p class="card-text"><%= @post.content %></p>
-          <% if @post.user_id == current_user.id %>
-            <%= link_to "編集する",edit_post_path(@post), class: "btn btn-success px-3" %>
-            <%= link_to "削除する", post_path(@post), method: :delete, class: "btn btn-danger px-3" %>
-          <% end %>
+<div class="contents">
+  <div class="row">
+    <div class="col-7">
+      <h2 class="p-4">投稿詳細</h2>
+        <div class="card mb-3 mt-5 ml-5" style="max-width: 600px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <%= attachment_image_tag @post,:image,width: "140",height: "200",class: "card-img" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= @post.created_at.strftime('%Y/%m/%d') %></h5>
+                <p class="card-text"><%= @post.content %></p>
+                <% if @post.user_id == current_user.id %>
+                  <%= link_to "編集する",edit_post_path(@post), class: "btn btn-success px-3 mt-1 mb-3" %>
+                  <%= link_to "削除する", post_path(@post), method: :delete, class: "btn btn-danger px-3 mt-1 mb-3" %>
+                  <p>
+                    <span id = "comments-count">コメント<%= @post.post_comments.count %>件</span>
+                    <span id="favorites_buttons_<%= @post.id %>"><%= render partial: 'posts/post', locals: { post: @post} %></span>
+                  </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-    </div>
+     </div>
+     <div class="col-5 new-comment ml-5 mt-5">
+       <%= render partial: 'post_comments/form' , locals: { post: @post, post_comment: @post_comment} %>
+     </div>
   </div>
+</div>
+
+<div class="comments pt-5">
+  <h2>コメント一覧</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">名前</th>
+        <th scope="col">日付</th>
+        <th scope="col">コメント</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <span id="comments_area"><%= render partial: 'post_comments/index', locals: { post_comments: @post_comments } %></span>
+  </table>
+</div>
