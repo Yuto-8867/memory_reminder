@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'anniversaries/index'
+  resources :meetings
+  resources :notifications, only: :index
+
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
 
 
   resources :posts do
     resource :favorites,only:[:create,:destroy]
     resources :post_comments,only:[:create,:destroy]
+  end
+
+  resources :tags do
+    get 'posts', to: 'posts#search'
   end
 
   root to: 'homes#top'

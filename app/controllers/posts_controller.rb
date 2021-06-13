@@ -3,24 +3,31 @@ class PostsController < ApplicationController
   before_action :authenticate_user!,except: [:index]
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    @post = current_user.posts.new(post_params)
+    tag_list = params[:post][:tag_name].split(nil)
+    if @post.save
+      @post.save_tag(tag_list)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+
   end
 
   def index
     @posts = Post.page(params[:page]).reverse_order
+    @tag_list = Tag.all
   end
 
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @post_comments = @post.post_comments
+    @post_tags = @post.tags
   end
 
   def edit
@@ -37,6 +44,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
+
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.all
   end
 
   private

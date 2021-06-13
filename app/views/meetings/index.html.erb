@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h2>記念日一覧</h2>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">何の記念日？</th>
+      <th scope="col">日付</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meetings.each do |meeting| %>
+      <tr>
+        <td><%= meeting.name %></td>
+        <td><%= meeting.start_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= month_calendar events: @meetings do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<%= link_to '記念日を登録する', new_meeting_path, class: "btn btn-sm btn-outline-secondary" %>

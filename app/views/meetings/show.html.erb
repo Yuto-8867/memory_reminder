@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>記念日:</strong>
+  <%= @meeting.name %>
+</p>
+
+<p>
+  <strong>日付:</strong>
+  <%= @meeting.start_time %>
+</p>
+
+<%= link_to '編集する', edit_meeting_path(@meeting) %> |
+<%= link_to '戻る', meetings_path %>
