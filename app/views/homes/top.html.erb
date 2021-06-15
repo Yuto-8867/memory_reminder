@@ -1,7 +1,12 @@
 <main>
-    <div class="text-center pt-5 mt-5">
-        <img src = "/assets/image1.jpg" width="200" height="200" class="mr-5">
-        <img src = "/assets/image2.jpg" width="200" height="200">
+    <div class="slider">
+        <ul class="slides">
+            <li class="slide"><img src="image1.jpg" alt=""></li>
+            <li class="slide"><img src="image2.jpg" alt=""></li>
+            <li class="slide"><img src="image3.jpg" alt=""></li>
+            <li class="slide"><img src="image4.jpg" alt=""></li>
+            <li class="slide"><img src="image5.jpg" alt=""></li>
+        </ul>
     </div>
     <div class="text-center pt-5">
         <p>
@@ -11,4 +16,14 @@
         <h3 class="pt-2">まずはみなさんの思い出を見てみませんか？</h3>
         <%= link_to "みんなの思い出へ", posts_path, class: "btn btn-primary mt-3" %>
     </div>
+
+    <script>
+$('.slider').glide({
+arrowRightText: '',
+arrowLeftText: '',
+animationDuration: 1500,
+autoplay: 4000,
+hoverpause: false
+});
+</script>
 </main>
