@@ -1,41 +1,39 @@
-<h2>編集画面</h2>
+<p class="lead-form mt-5">編集画面<p2>
 <%= form_with model: @user, local: true do |f| %>
-<div class= "field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class= "field">
+    <%= f.label :名前,class: "label" %><br />
+    <%= f.text_field :name, autofocus: true, class: "inputs" %>
   </div>
 
   <div class= "field">
-    <%= f.label :ニックネーム %><br />
-    <%= f.text_field :nickname %>
+    <%= f.label :ニックネーム,class: "label" %><br />
+    <%= f.text_field :nickname, class: "inputs" %>
   </div>
 
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :メールアドレス,class: "label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "inputs" %>
   </div>
 
   <div class ="field">
-    <%= f.label :好きな食べ物 %><br />
-    <%= f.text_field :favorite_food %>
+    <%= f.label :好きな食べ物,class: "label" %><br />
+    <%= f.text_field :favorite_food, class: "inputs" %>
   </div>
 
   <div class ="field">
-    <%= f.label :趣味 %><br />
-    <%= f.text_field :hobby %>
+    <%= f.label :趣味,class: "label" %><br />
+    <%= f.text_field :hobby, class: "inputs" %>
   </div>
 
   <div class ="field">
-    <%= f.label :共通のログインネーム %><br />
-    <%= f.text_field :login_name %>
+    <%= f.label :共通のログインコード,class: "label text-nowrap" %><br />
+    <%= f.text_field :login_name, class: "inputs" %>
   </div>
 
   <div class="field">
-    <%= f.label :プロフィール画像 %><br />
-    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-    現在の画像
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+    <%= f.label :プロフィール画像,class: "label text-nowrap" %><br />
+    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "inputs" %>
   </div>
 
-  <%= f.submit "保存", class: "btn btn-success" %>
+  <%= f.submit "保存する", class: "btn btn-success mt-3 px-5" %>
 <% end %>

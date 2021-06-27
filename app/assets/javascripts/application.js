@@ -12,9 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+//= require rails-ujs
+
 
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+// ここからはスライドショーのJavaScript
+
+/*global $*/
+$(function() {
+    $('.a').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+    });
+});
+
+// ここまでがスライドショーのJavaScript
+
+

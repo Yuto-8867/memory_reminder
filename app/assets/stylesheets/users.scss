@@ -1,3 +1,151 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 6px;
+  margin-bottom: 50px;
+}
+
+.img {
+  border-radius: 50%;
+}
+
+.current {
+  float: left;
+}
+
+// 登録者のデザイン
+/*枠デザイン*/
+.profile_box {
+margin-left: 30px;
+margin-top: 20px;
+background: #dcefff; /*内容の背景色*/
+border-radius: 10px;
+border-left: solid 2px #33CCFF;
+border-right: solid 2px #33CCFF;
+border-bottom: solid 10px #33CCFF;
+
+}
+.profile_box .box-title {
+font-size: 18px;
+line-height: 1.8;
+background: #5fb3f5; /*タイトルの背景色*/
+padding: 4px;
+text-align: center;
+color: #FFF; /*文字色*/
+font-weight: bold;
+letter-spacing: 0.05em;
+border-radius: 10px 10px 0 0;
+}
+/*内容*/
+.profile_center{
+text-align: center;
+margin: 10px 15px 0 0;
+}
+/*プロフィール画像*/
+.profile_figure {
+width: 150px;
+height: 150px;
+border-radius: 50%; /*丸くする*/
+border: solid 3px #5fb3f5; /*枠線*/
+}
+/*名前*/
+.profile_name {
+padding: 15px 20px;
+font-weight: bold;
+font-size: 16px;
+}
+/*自己紹介文*/
+.profile_box p {
+padding: 15px 20px;
+margin: 0;
+font-size: 20px;
+}
+/*リスト*/
+.profile_box ul {
+padding: 0.5em 1em 0.5em 2.3em;
+position: relative;
+}
+.profile_box ul li {
+line-height: 1.5;
+padding: 0.5em 0;
+list-style-type: none!important;
+font-size: 20px;
+}
+// .profile_box ul li:before {
+// // font-family: "Font Awesome 5 Free";
+// // // content: "f138";/*アイコンの種類*/
+// // font-weight: 900;
+// // position: absolute;
+// // left : 1em;/*左端からのアイコンまでの距離*/
+// // /color: skyblue;/*アイコン色*/
+// }
+
+// 共有者のデザイン
+/*枠デザイン*/
+.profile_box2 {
+margin-left: 30px;
+margin-top: 20px;
+border-left: solid 2px #ff7d6e;
+border-right: solid 2px #ff7d6e;
+border-bottom: solid 10px #ff7d6e;
+border-radius: 10px;
+}
+.profile_box2 .box-title2 {
+font-size: 18px;
+line-height:1.8;
+background: #bf4b3d; /*タイトルの背景色*/
+padding: 4px;
+text-align: center;
+color: #FFF; /*文字色*/
+font-weight: bold;
+letter-spacing: 0.05em;
+border-radius: 10px 10px 0 0;
+}
+/*内容*/
+.profile_center2{
+text-align: center;
+margin: 10px 15px 0 0;
+}
+/*プロフィール画像*/
+.profile_figure2 {
+width:150px;
+height:150px;
+border-radius: 50%; /*丸くする*/
+border: solid 3px #f2d0cb; /*枠線*/
+}
+/*名前*/
+.profile_name2 {
+padding: 15px 20px;
+font-weight:bold;
+font-size:16px;
+}
+/*自己紹介文*/
+.profile_box2 p {
+padding: 15px 20px;
+margin: 0;
+font-size: 18px;
+}
+/*リスト*/
+.profile_box2 ul {
+padding: 0.5em 1em 0.5em 2.3em;
+position: relative;
+}
+.profile_box2 ul li {
+line-height: 1.5;
+padding: 0.5em 0;
+list-style-type: none!important;
+font-size: 18px;
+}
+
+.icon {
+  color: skyblue;
+}
+
+.icon2 {
+  color: #ff7d6e;
+}

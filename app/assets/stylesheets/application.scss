@@ -18,54 +18,44 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.lead-form{
-  text-align: center;
-  font-size:20px;
+// ボタンの立体
+
+.btn-primary {
+  box-shadow: 0 7px #0066CC
 }
 
-form{
-  width:460px;
-  margin:0 auto;
+.btn-primary:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
 }
 
-.field{
-  overflow: hidden;
+.btn-info {
+  box-shadow: 0 7px #006699
 }
 
-.label{
-  float: left;
-  margin-right: 20px;
-  width:135px;
-  border-left: solid 3px #e0505d;
-  padding-left: 10px;
+.btn-info:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
 }
 
-.inputs{
-  float: left;
-  width:300px;
+.btn-success {
+  box-shadow: 0 7px #1a7940;
 }
 
-.label {
-    margin-top:25px;
+.btn-success:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
 }
 
-.submit-button {
-    background: #e0505c;
-    border: none;
-    color: white;
-    font-size:17px;
-    font-weight:bold;
-    margin-top:20px;
-    padding: 5px 80px;
-    margin: 0 5px;
+.btn-danger {
+  box-shadow: 0 7px #990000;
 }
 
-.login-button {
-    background: #99FF66;
-    border: none;
-      color: white;
-      font-size:17px;
-      font-weight:bold;
-      padding: 7px 30px;
-      margin: 0 5px;
+.btn-danger:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
 }

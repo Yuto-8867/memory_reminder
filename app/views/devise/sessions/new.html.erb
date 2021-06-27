@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <div class="field">
-    <%= f.label :ログインネーム,class: "label" %><br />
+    <%= f.label :ログインコード,class: "label" %><br />
     <%= f.text_field :login_name, autofocus: true, class: "inputs" %>
   </div>
 
@@ -20,8 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログインする",class: "btn btn-danger mr-4 mb-4" %>
+    <%= render "devise/shared/links" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

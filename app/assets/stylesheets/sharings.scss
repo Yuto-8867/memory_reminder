@@ -1,0 +1,52 @@
+// Place all the styles related to the Sharings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lead-form{
+  text-align: center;
+  font-size: 30px;
+}
+
+form{
+  width: 460px;
+  margin: 0 auto;
+}
+
+.field{
+  overflow: hidden;
+}
+
+.label{
+  float: left;
+  margin-right: 20px;
+  width: 135px;
+  border-left: solid 3px #e0505d;
+  padding-left: 10px;
+  margin-top: 55px;
+  font-size: 16px;
+}
+
+.inputs{
+  float: left;
+  width: 300px;
+}
+
+.submit-button {
+    background: #e0505c;
+    border: none;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 40px;
+    padding: 5px 80px;
+    margin: 0 5px;
+}
+
+.login-button {
+    background: #4169e1;
+    border: none;
+      color: white;
+      font-size:17px;
+      padding: 7px 30px;
+      margin: 0 5px;
+}

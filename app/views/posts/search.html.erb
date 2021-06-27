@@ -1,19 +1,30 @@
-<h2>投稿一覧</h2>
+<aside>
+ 		<h3 class="sub-title">タグリスト</h3>
+ 		<ul class="sub-menu">
+ 			<% @tag_list.each do |list| %>
+ 			<li>
+ 				<%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
+    		<%= "(#{list.posts.count})" %>
+ 			</li>
+ 			<% end %>
+ 		</ul>
+ 	</aside>
 
-<% @tag_list.each do |list| %>
-  <span>
-   <%= link_to list.tag_name, tag_posts_path(post_tag_id: list.id) %>
-   <%= "(#{list.posts.count})" %>
-  </span>
-<% end %>
 <br>
-<%= "タグが ─ " %>
-<% strong= "#{@tag.tag_name}" %>
-<%= " ─ の投稿一覧" %>
+<h4 class="ml-4">タグが<strong><%= @tag.tag_name %></strong>の投稿一覧</h4>
 <br>
-<% @posts.each do |post| %>
-  <%= link_to post.content, post %>
-<% end %>
+
+
+<div class="wrapper grid text-center">
+  <% @posts.each do |post| %>
+    <div class="item">
+      <%= link_to post_path(post.id) do %>
+        <%= attachment_image_tag post,:image,width: "200", height: "200", class: "img"%>
+      <% end %>
+      <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+  <% end %>
+</div>
 <br>
 <%= link_to 'ホーム', posts_path %>
 

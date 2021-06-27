@@ -1,14 +1,12 @@
 <p class="lead-form mt-5">新規登録はこちら！</p>
 
-<form>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
 
   <div class= "field">
     <%= f.label :名前,class: "label" %><br />
-    <%= f.text_field :name, autofocus: true, class: "inputs" %>
+    <%= f.text_field :name, autofocus: true, class: "inputs", placeholder: "フルネーム" %>
   </div>
 
   <div class= "field">
@@ -18,7 +16,7 @@
 
   <div class="field">
     <%= f.label :メールアドレス,class: "label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "inputs" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "inputs", placeholder: "you@example.com" %>
   </div>
 
   <div class ="field">
@@ -33,13 +31,13 @@
 
   <div class ="field">
     <%= f.label :ログインコード,class: "label" %><br />
-    <%= f.text_field :login_name, class: "inputs" %>
+    <%= f.text_field :login_name, class: "inputs", placeholder: "4桁の数字を入力して下さい" %>
   </div>
 
   <div class="field">
     <%= f.label :パスワード,class: "label" %>
     <br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "inputs" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "inputs", placeholder: "6文字以上で入力して下さい" %>
   </div>
 
   <div class="field">
@@ -48,11 +46,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "登録する", class: "submit-button" %>
+    <%= f.submit "登録する", class: "btn btn-danger px-5 mr-3" %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>
 
 
-
-</form>

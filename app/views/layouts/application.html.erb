@@ -2,45 +2,64 @@
 <html>
   <head>
     <title>MemoryReminder</title>
+    <!--レスポンシブデザイン-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--タグ用コード-->
     <%= csrf_meta_tags %>
-
+    <!--CSS用-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <!--Javascript-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
     <header>
+      <!--もしログインしていたら-->
         <% if user_signed_in? %>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-light navbar-expand-md bg-light">
+            <!--ロゴ用のHTML-->
             <%= link_to posts_path , class: "navbar-brand pl-5" do %>
               <img src = "/assets/logo.jpg" alt = "logo" width="170" height="30">
             <% end %>
-            <div class="collapse navbar-collapse">
+            <!--ロゴここまで-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="responsiveMenu">
               <ul class="navbar-nav ml-auto">
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-circle" style="color: gold;"></i>
+                <% end %>
                 <li class="navbar-item pr-5"><%= link_to "通知",notifications_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "マイページ",user_path(current_user.id),class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "みんなの思い出", posts_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "思い出を残す",new_post_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "記念日",meetings_path,class: "nav-link" %></li>
+                <li class="navbar-item pr-5"><%= link_to "仲直り",page1_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "ログアウト",destroy_user_session_path,method: :delete,class: "nav-link" %></li>
               </ul>
             </div>
           </nav>
-
-
+      <!--ログインしてない時-->
         <% else %>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <%= link_to root_path , class: "navbar-brand pl-5" do %>
-              <img src = "/assets/logo.jpg" alt = "logo" width="170" height="30">
-            <% end %>
-            <div class="collapse navbar-collapse">
-              <ul class="navbar-nav ml-auto">
-                <li class="navbar-item pr-5"><%= link_to "About", homes_about_path,class: "nav-link" %></li>
-                <li class="navbar-item pr-5"><%= link_to "思い出一覧",posts_path,class: "nav-link" %></li>
-                <li class="navbar-item pr-5"><%= link_to "新規登録",new_user_registration_path,class: "nav-link" %></li>
-                <li class="navbar-item pr-5"><%= link_to "ログイン",new_user_session_path,class: "nav-link" %></li>
-              </ul>
-            </div>
+          <nav class="navbar navbar-light navbar-expand-md bg-light">
+              <%= link_to root_path , class: "navbar-brand pl-5" do %>
+                <img src = "/assets/logo.jpg" alt = "logo" width="170" height="30">
+              <% end %>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="responsiveMenu">
+                <ul class="navbar-nav ml-auto">
+                  <li class="navbar-item pr-5"><%= link_to "どんなサイト?", homes_about_path %></li>
+                  <li class="navbar-item pr-5"><%= link_to "思い出一覧",posts_path %></li>
+                  <li class="navbar-item pr-5"><%= link_to "新規登録",new_user_registration_path %></li>
+                  <li class="navbar-item pr-5"><%= link_to "ログイン",new_user_session_path %></li>
+                </ul>
+              </div>
           </nav>
         <% end %>
     </header>

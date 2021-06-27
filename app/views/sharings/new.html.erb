@@ -1,0 +1,42 @@
+<p class="lead-form mt-5">共有する人の登録はこちら！</p>
+  <%= form_with model: @sharing, local:true do |f| %>
+
+ <div class= "field">
+    <%= f.label :名前,class: "label" %><br />
+    <%= f.text_field :name, autofocus: true, class: "inputs" %>
+</div>
+
+<div class= "field">
+    <%= f.label :ニックネーム,class: "label" %><br />
+    <%= f.text_field :nickname, class: "inputs" %>
+</div>
+
+<div class="field">
+    <%= f.label :メールアドレス,class: "label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "inputs" %>
+</div>
+
+<div class ="field">
+    <%= f.label :好きな食べ物,class: "label" %><br />
+    <%= f.text_field :favorite_food, class: "inputs"%>
+</div>
+
+<div class ="field">
+    <%= f.label :趣味,class: "label" %><br />
+    <%= f.text_field :hobby, class: "inputs" %>
+</div>
+
+<div class="field">
+  <%= f.label :登録者との関係,class: "label" %><br />
+  <%= f.text_field :type,class: "inputs" %>
+</div>
+
+<div class="field">
+    <%= f.label :プロフィール画像,class: "label text-nowrap" %><br />
+    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像",class: "inputs" %>
+ </div>
+
+<div class="actions">
+    <%= f.submit "登録する", class: "submit-button mt-4" %>
+</div>
+<% end %>

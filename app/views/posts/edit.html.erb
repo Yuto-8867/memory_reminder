@@ -1,11 +1,26 @@
-<h2>編集画面</h2>
+<p class="lead-form mt-5">編集する</p>
 <%= form_with model: @post, local:true do |f| %>
-<p>写真</p>
-<%= f.attachment_field :image %>
-<p>名前</p>
-<%= f.text_field :name %>
-<p>内容</p>
-<%= f.text_area :content %>
-<%= f.submit "保存" %>
+
+<div class="field">
+  <p class="label">写真</p>
+  <%= f.attachment_field :image, class: "inputs" %>
+</div>
+
+<div class="field">
+  <p class="label">名前</p>
+  <%= f.text_field :name, class: "inputs" %>
+</div>
+
+<div class="field">
+  <p class="label">タイトル</p>
+  <%= f.text_field :title, class: "inputs" %>
+</div>
+
+<div class="field">
+  <p class="label">内容</p>
+  <%= f.text_area :content, class: "inputs" %>
+</div>
+
+<%= f.submit "保存", class: "btn btn-primary px-5 mt-3" %>
 
 <% end %>

@@ -1,9 +1,16 @@
 <main>
-  <div class="text-center pt-5">
-    <p>
-      サイトの概要を書く
+  <div class="text-center pt-5 pb-5 about-comment">
+    <!--ユーザーが新規登録したくなるような文章を記述する-->
+    <p class="h6 pt-5 mt-5 pb-5 mb-5">
+      このサイトは思い出を共有するために使われています。<br>
+      何歳になっても写真を見返して、思い出を振り返り、<br>
+      新たに大切な時間を刻んでみませんか？<br>
+      思い出を共有し、記念日を記録し、気持ちがすれ違っても仲直りできる<br>
+      そんなサイトを作ってみました。<br>
+      新規登録して、たくさんの思い出を刻んで下さい。
     </p>
-    <%= link_to "みんなの投稿はこちら",posts_path,class: "btn btn-info" %><br/>
-    <%= link_to "新規登録はこちら",new_user_registration_path,class: "btn btn-success mt-3 px-4" %>
+    <!--新規登録か投稿一覧へ遷移する-->
+    <%= link_to "みんなの投稿はこちら",posts_path,class: "btn btn-info text-white mr-4 mb-5" %>
+    <%= link_to "新規登録はこちら",new_user_registration_path,class: "btn btn-success px-4 text-white mb-5" %>
   </div>
 </main>

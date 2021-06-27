@@ -1,34 +1,46 @@
-<h3>タグリスト</h3>
-<% @tag_list.each do |list| %>
-  <span>
-    <%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
-    <%= "(#{list.posts.count})" %>
-  </span>
-<% end %>
+<%= paginate @posts %>
+<div class="news-contents wrapper">
+	    <aside class="order-2">
+			<h3 class="sub-title">タグリスト</h3>
+	 	    <ul class="sub-menu">
+		 		<% @tag_list.each do |list| %>
+		 			<li>
+		 				<%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
+			    		<%= "(#{list.posts.count})" %>
+			    	</li>
+				<% end %>
+		 	</ul>
+		 	</aside>
+		<!--ここから投稿一覧部分/もう少し改善の余地あり-->
+		 	<article class="article order-1">
+			 		<% @posts.each do |post| %>
+					 		<hr>
+							 	<header class="post-info text-nowrap">
+							 		<h2 class="post-title"><%= post.title %></h2>
+							 		<p class="post-date"><%= post.created_at.strftime("%m/%d")%><span><%= post.created_at.strftime("%Y")%></span></p>
+							 		<p class="post-cat">投稿者：<%= post.name %><%= link_to "コメントを見る",post_path(post.id), class: "ml-4 text-primary" %></p>
+							 	</header>
+							 	<%= link_to post_path(post.id) do %>
+					        <%= attachment_image_tag post,:image, class: "img" %>
+					      <% end %>
+				      	<p class="mb-5 h5">内容：<%= post.content %></p>
+				      </hr>
+		      		<% end %>
+		 	</article>
+		<!--ここまでが投稿一覧分部分 	-->
 
-  <hr>
 
-<div class="post-contents wrappe">
-  <% @posts.each do |post| %>
-  <article class="p-5 mt-5 ml-5">
-    <header class="post-info">
-      <h2 class="post-title"><%= post.title %></h2>
-      <p class="post-date"><%= post.created_at.strftime("%m月%d日")%><span><%= post.created_at.strftime("%Y") %></span></p>
-      <p class="post-cat">投稿者:<%= post.name %>
-        <% if current_user %>
-          <%= link_to "#{post.post_comments.count}コメント",post_path(post.id), class: "ml-4" %>
-          <span id="favorites_buttons_<%= post.id %>"><%= render partial: 'posts/post', locals: { post: post} %></span>
-        <% end %>
-      </p>
-    </header>
-    <% if current_user %>
-      <%= link_to post_path(post), class: "mb-4 p-5 m-5" do %>
-      <%= attachment_image_tag post, :image %>
-      <% end %>
-    <% else %>
-      <p class="px-5 mx-5"><%= attachment_image_tag post, :image %></p>
-    <% end %>
-    <p class="px-5 mx-5 mt-3"><%= post.content %></p>
-  </article>
-  <% end %>
+	<!--ここからタグリスト-->
+		 	<!--<aside>
+			 		<h3 class="sub-title">タグリスト</h3>
+				 	<ul class="sub-menu">
+				 		<% @tag_list.each do |list| %>
+				 			<li>
+				 				<%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
+				    		<%= "(#{list.posts.count})" %>
+				 			</li>
+				 		<% end %>
+				 	</ul>
+		 	</aside>-->
+	<!--ここまでがタグリスト 	-->
 </div>

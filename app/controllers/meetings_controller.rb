@@ -49,6 +49,7 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1 or /meetings/1.json
   def destroy
+    @meeting = Meeting.find(params[:id])
     @meeting.destroy
     respond_to do |format|
       format.html { redirect_to meetings_url, notice: "記念日を削除しました。" }

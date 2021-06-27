@@ -1,6 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="calender mt-5">
+  <%= month_calendar events: @meetings do |date, meetings| %>
+    <%= date %>
 
-<h2>記念日一覧</h2>
+    <% meetings.each do |meeting| %>
+      <div>
+        <%= link_to meeting_path(meeting) do %>
+          <p class="text-danger h6"><%= meeting.name%></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<%= link_to '記念日を登録する', new_meeting_path, class: "btn btn-sm btn-outline-secondary mt-4 mb-5" %>
+
+<h2 class="mb-4">記念日一覧</h2>
 
 <table class="table table-sm table-striped">
   <thead>
@@ -12,22 +27,14 @@
   <tbody>
     <% @meetings.each do |meeting| %>
       <tr>
-        <td><%= meeting.name %></td>
-        <td><%= meeting.start_time %></td>
+        <td>
+          <%= link_to meeting_path(meeting) do %>
+            <%= meeting.name %>
+          <% end %>
+        </td>
+        <td><%= meeting.start_time.strftime('%Y/%m/%d') %></td>
+        <td><%= link_to "削除する",meeting_path(meeting.id), method: :delete, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date %>
-
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= meeting.name %>
-    </div>
-  <% end %>
-<% end %>
-
-
-<%= link_to '記念日を登録する', new_meeting_path, class: "btn btn-sm btn-outline-secondary" %>

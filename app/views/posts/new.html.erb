@@ -1,18 +1,31 @@
-<h2>思い出を残す</h2>
-<%= form_with model: @post, local:true do |f| %>
-<p>写真</p>
-<%= f.attachment_field :image %>
-<p>名前</p>
-<%= f.text_field :name %>
-<p>タイトル</p>
-<%= f.text_field :title %>
-<p>内容</p>
-<%= f.text_area :content %>
-<p>タグ<br>
-<%= "スペースを入力することで複数のタグを付けることができます。" %><br>
-<%= "例：音楽 文芸 スポーツ" %>
-</p>
-<%= f.text_area :tag_name %>
-<%= f.submit "記録" %>
+<p class="lead-form mt-5">思い出を残す</p>
+    <%= form_with model: @post, local:true do |f| %>
 
-<% end %>
+    <div class="field">
+        <p class="label">写真</p>
+        <%= f.attachment_field :image, class: "inputs" %>
+    </div>
+
+    <div class="field">
+        <p class="label">名前</p>
+        <%= f.text_field :name, class: "inputs" %>
+    </div>
+
+    <div class="field">
+        <p class="label">タイトル</p>
+        <%= f.text_field :title, class: "inputs" %>
+    </div>
+
+    <div class="field">
+        <p class="label">内容</p>
+        <%= f.text_area :content, class: "inputs" %>
+    </div>
+
+    <div class="field">
+        <p class="label">タグ<br>
+            <%= "例：音楽 文芸" %>
+        </p>
+        <%= f.text_area :tag_name,class: "inputs",placeholder: "スペースを入力することで複数のタグを付けることができます。" %>
+    </div>
+    <%= f.submit "記録する", class: "btn btn-primary px-5 mt-3" %>
+    <% end %>

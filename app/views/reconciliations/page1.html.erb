@@ -1,0 +1,37 @@
+<section class="py-5">
+  <h2 class="mb-5 text-center">仲直りページ</h2>
+        <div class="container">
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a href="#ios" class="nav-link active" data-toggle="tab"><%= @sharing.name %>さんとケンカ</a></li>
+            <li class="nav-item"><a href="#android" class="nav-link" data-toggle="tab"><%= current_user.name %>さんとケンカ</a></li>
+          </ul>
+          <div class="tab-content py-4">
+            <div id="ios" class="tab-pane active">
+              <div class="row">
+                <div class="col-6">
+                  <div class="box25 py-5">
+                    <p class="ml-3"><%= @sharing.name %>さんとケンカしましたか？</p>
+                    <div class="mt-3"><%= link_to "はい", page3_path, class: "ml-3 text-primary" %><%= link_to "いいえ", page2_path, class: "text-primary ml-5" %></div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <%= attachment_image_tag @random,:image,width: "300", height: "300", class: "random-image"%>
+                </div>
+              </div>
+            </div>
+            <div id="android" class="tab-pane">
+              <div class="row">
+                <div class="col-6">
+                  <div class="box25 py-5">
+                    <p class="ml-3"><%= current_user.name %>さんとケンカしましたか？</p>
+                    <div class="mt-3"><%= link_to "はい", page9_path, class: "ml-3 text-primary" %><%= link_to "いいえ", page2_path, class: "text-primary ml-5" %></div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <%= attachment_image_tag @random,:image,width: "300", height: "300", class: "random-image"%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
