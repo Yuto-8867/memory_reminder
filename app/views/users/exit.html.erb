@@ -1,0 +1,11 @@
+<main>
+  <div class="text-center pt-5">
+    <h2>本当に退会しますか？</h2>
+    <p>退会すると、会員登録情報や</br>
+       これまで投稿の閲覧ができなくなります。</br>
+       退会する場合は、「退会する」をクリックしてください。
+    </p>
+    <%= link_to "退会しない", user_path(current_user),class: "btn btn-primary mr-5 px-5 text-white" %>
+    <%= link_to "退会する", withdrawal_path(current_user),class: "btn btn-danger px-5 text-white"%>
+  </div>
+</main>

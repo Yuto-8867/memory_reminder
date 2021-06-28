@@ -14,11 +14,14 @@
  *= require_tree .
  *= require_self
  */
+
+// Bootstrap・fontawesomeの導入ここから
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+// Bootstrap・fontawesomeの導入ここまで
 
-// ボタンの立体
+// ボタンの立体ここから
 
 .btn-primary {
   box-shadow: 0 7px #0066CC
@@ -59,3 +62,5 @@
   position: relative;
   top: 7px;
 }
+
+// ボタンの立体ここまで

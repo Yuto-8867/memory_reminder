@@ -10,5 +10,4 @@ class SharingsControllerTest < ActionDispatch::IntegrationTest
     get sharings_edit_url
     assert_response :success
   end
-
 end

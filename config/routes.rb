@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'reconciliations/page1' => "reconciliations#page1", as: 'page1'
   get 'reconciliations/page2' => "reconciliations#page2", as: 'page2'
   get 'reconciliations/page3' => "reconciliations#page3", as: 'page3'
@@ -15,19 +14,19 @@ Rails.application.routes.draw do
   get 'reconciliations/page13' => "reconciliations#page13", as: 'page13'
   get 'reconciliations/page14' => "reconciliations#page14", as: 'page14'
 
+  get 'users/:id/exit' => 'users#exit', as: 'user_exit'
+  get 'users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
 
-
-  resources :sharings, only: [:new,:create,:show,:edit,:update,:destroy]
+  resources :sharings, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :meetings
-  resources :notifications, only: [:index,:destroy]
+  resources :notifications, only: [:index, :destroy]
 
   resources :messages, only: [:create]
-  resources :rooms, only: [:create,:show]
-
+  resources :rooms, only: [:create, :show]
 
   resources :posts do
-    resource :favorites,only:[:create,:destroy]
-    resources :post_comments,only:[:create,:destroy]
+    resource :favorites, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
   end
 
   resources :tags do
@@ -37,11 +36,10 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   devise_for :users
 
-  resources :users, only:[:show,:edit,:update] do
+  resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
-
   end
   get 'homes/about'
 

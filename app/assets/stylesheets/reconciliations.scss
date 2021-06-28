@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 仲直りページで画像が右にある時
+
 .box25{
     position: relative;
     background: #fff0cd;
@@ -30,7 +32,11 @@
 .random-image {
   margin-top: 75px;
   margin-left: 50px;
+  width: 300px;
+  height: 300px;
 }
+
+// 真ん中にメッセージ
 
 .box26{
     position: relative;
@@ -56,7 +62,36 @@
     font-size: 16px;
 }
 
+// 画像の位置
+
 .random-image2 {
   margin-top: 75px;
   margin-left: 200px;
+}
+
+// はい・いいえのバランス
+
+.Yes {
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+
+
+@media screen and (max-width:425px) {
+    .box25 {
+        margin-top: 100px;
+        margin-left: 0;
+    }
+
+    .box25 p {
+        font-size: 12px;
+    }
+
+    .random-image {
+        width: 150px;
+        height: 150px;
+        margin-top: 110px;
+    }
 }

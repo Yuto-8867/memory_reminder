@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :記念日 %>
-    <%= form.text_field :name %>
+    <p class="label"><%= form.label :記念日 %></p>
+    <%= form.text_field :name, class: "inputs" %>
   </div>
 
   <div class="field">
-    <%= form.label :日付 %>
-    <%= form.datetime_select :start_time %>
+    <p class="label"><%= form.label :日付 %></p>
+    <div class="date"><%= form.datetime_select :start_time %></div>
   </div>
 
-  <div class="actions">
+  <div class="actions mt-5">
     <%= form.submit %>
   </div>
 <% end %>

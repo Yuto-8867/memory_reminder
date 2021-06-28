@@ -1,12 +1,10 @@
 class ReconciliationsController < ApplicationController
-
   def page1
     @random = current_user.posts.sample
     @sharing = Sharing.find_by(user_id: current_user)
   end
 
   def page2
-
   end
 
   def page3
@@ -46,14 +44,11 @@ class ReconciliationsController < ApplicationController
   end
 
   def page12
-
   end
 
   def page13
-
   end
 
   def page14
-
   end
 end

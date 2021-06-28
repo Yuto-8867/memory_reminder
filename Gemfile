@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
 # Use sqlite3 as the database for Active Record
@@ -61,4 +60,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
+# インデントを整えるためのgem
+gem 'rubocop-airbnb'

@@ -1,5 +1,4 @@
 class SharingsController < ApplicationController
-
   def new
     @sharing = Sharing.new
   end
@@ -21,9 +20,15 @@ class SharingsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    @sharing = Sharing.find(params[:id])
+    @sharing.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def sharing_params
-    params.require(:sharing).permit(:name,:nickname,:email,:favorite_food,:hobby,:type,:profile_image)
+    params.require(:sharing).permit(:name, :nickname, :email, :favorite_food, :hobby, :type, :profile_image)
   end
 end

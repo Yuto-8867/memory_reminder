@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-
   before_action :authenticate_user!
 
   def create
@@ -12,7 +11,7 @@ class RoomsController < ApplicationController
   def show
     @user = User.find(params[:id])
     @room = Room.find(params[:id])
-    if Entry.where(user_id: current_user.id,room_id: @room.id).present?
+    if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
@@ -20,5 +19,4 @@ class RoomsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-
 end

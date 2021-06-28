@@ -1,3 +1,45 @@
 // Place all the styles related to the Meetings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 記念日新規登録フォームここから
+
+.lead-form{
+  text-align: center;
+  font-size: 30px;
+}
+
+form{
+  width: 460px;
+  margin: 0 auto;
+}
+
+.field{
+  overflow: hidden;
+}
+
+.label{
+  float: left;
+  margin-right: 20px;
+  width: 135px;
+  border-left: solid 3px #e0505d;
+  padding-left: 10px;
+}
+
+.inputs{
+  float: left;
+  width: 300px;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.date {
+  margin-top: 65px;
+}
+
+.show p {
+  font-size: 25px;
+  border-left: solid 3px #e0505d;
+}
+
+// 記念日新規登録フォームここまで

@@ -76,14 +76,7 @@ padding: 0.5em 0;
 list-style-type: none!important;
 font-size: 20px;
 }
-// .profile_box ul li:before {
-// // font-family: "Font Awesome 5 Free";
-// // // content: "f138";/*アイコンの種類*/
-// // font-weight: 900;
-// // position: absolute;
-// // left : 1em;/*左端からのアイコンまでの距離*/
-// // /color: skyblue;/*アイコン色*/
-// }
+
 
 // 共有者のデザイン
 /*枠デザイン*/
@@ -148,4 +141,12 @@ font-size: 18px;
 
 .icon2 {
   color: #ff7d6e;
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+
+@media screen and (max-width:425px) {
+  .profile_box ul li {
+    font-size: 15px;
+  }
 }

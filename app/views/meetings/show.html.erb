@@ -1,12 +1,14 @@
-<p>
-  <strong>記念日:</strong>
-  <%= @meeting.name %>
-</p>
+<div class="show text-center mt-5">
+  <p>
+    <strong>記念日:</strong>
+    <%= @meeting.name %>
+  </p>
 
-<p>
-  <strong>日付:</strong>
-  <%= @meeting.start_time.strftime('%Y/%m/%d') %>
-</p>
+  <p class="mt-4 mb-4">
+    <strong>日付:</strong>
+    <%= @meeting.start_time.strftime('%Y/%m/%d') %>
+  </p>
 
-<%= link_to '編集する', edit_meeting_path(@meeting) %> |
-<%= link_to '戻る', meetings_path %>
+  <%= link_to '編集する', edit_meeting_path(@meeting), class: "btn btn-success text-white px-3 mr-4" %>
+  <%= link_to '戻る', meetings_path, class: "btn btn-primary text-white px-4"  %>
+</div>

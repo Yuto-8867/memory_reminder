@@ -1,4 +1,4 @@
-<aside>
+<aside class="tag">
  		<h3 class="sub-title">タグリスト</h3>
  		<ul class="sub-menu">
  			<% @tag_list.each do |list| %>
@@ -8,7 +8,7 @@
  			</li>
  			<% end %>
  		</ul>
- 	</aside>
+ </aside>
 
 <br>
 <h4 class="ml-4">タグが<strong><%= @tag.tag_name %></strong>の投稿一覧</h4>
@@ -26,5 +26,4 @@
   <% end %>
 </div>
 <br>
-<%= link_to 'ホーム', posts_path %>
 

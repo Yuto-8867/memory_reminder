@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  validates :login_name, uniqueness: true
+  validates :email, uniqueness: true
+
+
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -22,19 +27,24 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
+  def active_for_authentication
+    super && (is_valid == false)
+  end
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
+
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
+
   def following?(user)
     followings.include?(user)
   end
 
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ", current_user.id, id, 'follow'])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
@@ -43,5 +53,4 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
 end

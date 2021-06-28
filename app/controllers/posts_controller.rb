@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-
-  before_action :authenticate_user!,except: [:index]
+  before_action :authenticate_user!, except: [:index]
 
   def new
     @post = current_user.posts.new
@@ -15,7 +14,6 @@ class PostsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-
   end
 
   def index
@@ -55,6 +53,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name,:image,:content,:title)
+    params.require(:post).permit(:name, :image, :content, :title)
   end
 end

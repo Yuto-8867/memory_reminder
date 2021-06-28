@@ -13,7 +13,6 @@
 article {
 	width: 74%;
 	padding-left: 100px;
-	// padding-top: 100px;
 }
 
 .post-info {
@@ -73,10 +72,8 @@ article p {
 // ここからがタグリスト部分
 
 aside {
-	//float: right;
 	width: 22%;
 	padding-left: 100px;
-	// padding-top: 150px;
 	margin-right: 150px;
 }
 
@@ -108,8 +105,8 @@ aside {
 }
 
 form{
-  width:460px;
-  margin:0 auto;
+  width: 460px;
+  margin: 0 auto;
 }
 
 .field{
@@ -119,7 +116,7 @@ form{
 .label{
   float: left;
   margin-right: 20px;
-  width:135px;
+  width: 135px;
   border-left: solid 3px #e0505d;
   padding-left: 10px;
 }
@@ -132,7 +129,7 @@ form{
 }
 
 .label {
-    margin-top:25px;
+    margin-top: 25px;
 }
 
 // ここまでが投稿フォーム部分
@@ -204,6 +201,11 @@ article p {
 }
 }
 // ここまでは一覧ページの記事部分
+
+.tag {
+	float: right;
+	padding-top: 150px;
+}
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 

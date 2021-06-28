@@ -11,11 +11,11 @@
                 <div class="col-6">
                   <div class="box25 py-5">
                     <p class="ml-3"><%= @sharing.name %>さんとケンカしましたか？</p>
-                    <div class="mt-3"><%= link_to "はい", page3_path, class: "ml-3 text-primary" %><%= link_to "いいえ", page2_path, class: "text-primary ml-5" %></div>
+                    <div class="mt-3"><%= link_to "はい", page3_path, class: "text-primary Yes" %><%= link_to "いいえ", page2_path, class: "text-primary No" %></div>
                   </div>
                 </div>
                 <div class="col-4">
-                  <%= attachment_image_tag @random,:image,width: "300", height: "300", class: "random-image"%>
+                  <%= attachment_image_tag @random,:image, class: "random-image"%>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
  <div class="row">
-   <div class="col-5 ml-5 mr-5 pl-5 mb-5">
+   <div class="col-12 col-xl-5 ml-5 mr-5 pl-5 mb-5">
       <div class="profile_box">
         <div class="box-title">プロフィール</div>
         <div class="profile_center">
@@ -13,7 +13,7 @@
           <li><i class="fas fa-angle-double-right icon mr-1"></i>フォロー：<%= link_to @user.followings.count, user_followings_path(@user.id), class: "text-primary" %> フォロワー：<%= link_to @user.followers.count, user_followers_path(@user.id), class: "text-primary" %></li>
           <li>
             <% if @user == current_user %>
-              <%= link_to "編集する", edit_user_path(current_user),class: "btn btn-success text-white" %>
+              <%= link_to "編集する", edit_user_path(current_user),class: "btn btn-success text-white" %> <%= link_to "退会する", user_exit_path(current_user.id), class: "btn btn-danger text-white" %>
             <% end %>
           </li>
           <li>
@@ -44,7 +44,7 @@
         </ul>
       </div>
    </div>
-   <div class="col-5 ml-5">
+   <div class="col-12 col-xl-5 ml-5">
     <% if @sharing %>
       <div class="profile_box2">
           <div class="box-title2">プロフィール</div>
