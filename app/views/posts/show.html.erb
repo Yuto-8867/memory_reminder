@@ -5,7 +5,9 @@
         <div class="card mb-3 mt-5 ml-5" style="max-width: 600px;">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <%= attachment_image_tag @post,:image,width: "140",height: "200",class: "card-img" %>
+              <%= link_to user_path(@post.user_id) do %>
+                <%= attachment_image_tag @post,:image,width: "140",height: "200",class: "card-img" %>
+              <% end %>
             </div>
             <div class="col-md-8">
               <div class="card-body">

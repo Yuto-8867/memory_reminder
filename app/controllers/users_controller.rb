@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   def show
-    @sharing = Sharing.find_by(user_id: current_user)
     @user = User.find(params[:id])
+    @sharing = Sharing.find_by(user_id: @user.id)
     @posts = @user.posts.page(params[:page]).reverse_order
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)

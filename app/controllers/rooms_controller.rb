@@ -9,12 +9,13 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+
     @room = Room.find(params[:id])
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
+      @other_user_entry = @entries.where.not(user_id: current_user.id).first
     else
       redirect_back(fallback_location: root_path)
     end

@@ -38,7 +38,9 @@
                 <li class="navbar-item pr-5"><%= link_to "みんなの思い出", posts_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "思い出を残す",new_post_path,class: "nav-link" %></li>
                 <li class="navbar-item pr-5"><%= link_to "記念日",meetings_path,class: "nav-link" %></li>
-                <li class="navbar-item pr-5"><%= link_to "仲直り",page1_path,class: "nav-link" %></li>
+                <% if @sharing %>
+                  <li class="navbar-item pr-5"><%= link_to "仲直り",page1_path,class: "nav-link" %></li>
+                <% end %>
                 <li class="navbar-item pr-5"><%= link_to "ログアウト",destroy_user_session_path,method: :delete,class: "nav-link" %></li>
               </ul>
             </div>
