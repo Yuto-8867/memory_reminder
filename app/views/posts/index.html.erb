@@ -1,6 +1,6 @@
 <%= paginate @posts %>
 <div class="news-contents wrapper">
-	    <aside class="order-2">
+	    <aside class="order-2 tag">
 			<h3 class="sub-title">タグリスト</h3>
 	 	    <ul class="sub-menu">
 		 		<% @tag_list.each do |list| %>
@@ -33,16 +33,16 @@
 
 
 	<!--ここからタグリスト-->
-		 	<!--<aside>
-			 		<h3 class="sub-title">タグリスト</h3>
-				 	<ul class="sub-menu">
-				 		<% @tag_list.each do |list| %>
-				 			<li>
-				 				<%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
-				    		<%= "(#{list.posts.count})" %>
-				 			</li>
-				 		<% end %>
-				 	</ul>
-		 	</aside>-->
+		 	<!--<aside>-->
+			 <!--		<h3 class="sub-title">タグリスト</h3>-->
+				<!-- 	<ul class="sub-menu">-->
+				<!-- 		<% @tag_list.each do |list| %>-->
+				<!-- 			<li>-->
+				<!-- 				<%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>-->
+				<!--    		<%= "(#{list.posts.count})" %>-->
+				<!-- 			</li>-->
+				<!-- 		<% end %>-->
+				<!-- 	</ul>-->
+		 	<!--</aside>-->
 	<!--ここまでがタグリスト 	-->
 </div>
