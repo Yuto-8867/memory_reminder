@@ -23,13 +23,13 @@
 // ここからはスライドショーのJavaScript
 
 /*global $*/
-// $(function() {
-//     $('.a').slick({
-//         dots: true,
-//         autoplay: true,
-//         autoplaySpeed: 1000,
-//     });
-// });
+$(function() {
+     $('.a').slick({
+         dots: true,
+       autoplay: true,
+         autoplaySpeed: 1000,
+     });
+ });
 
 // ここまでがスライドショーのJavaScript
 
