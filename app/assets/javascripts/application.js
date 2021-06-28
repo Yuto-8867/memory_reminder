@@ -23,6 +23,7 @@
 
 // ここからはスライドショーのJavaScript
 
+/*global $*/
 $(function() {
     $('.a').slick({
         dots: true,
