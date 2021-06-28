@@ -22,7 +22,7 @@
           <nav class="navbar navbar-light navbar-expand-md bg-light">
             <!--ロゴ用のHTML-->
             <%= link_to posts_path , class: "navbar-brand pl-5" do %>
-              <img src = "/assets/logo.jpg" alt = "logo" width="170" height="30">
+              <%= image_tag 'logo.jpg', alt: "logo",style: 'height:30px;width:170px;' %>
             <% end %>
             <!--ロゴここまで-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
