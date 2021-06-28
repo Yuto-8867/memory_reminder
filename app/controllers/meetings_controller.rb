@@ -22,7 +22,7 @@ class MeetingsController < ApplicationController
   # POST /meetings or /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
-
+    @meeting.user_id = current_user.id
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to @meeting, notice: "記念日を登録しました。" }

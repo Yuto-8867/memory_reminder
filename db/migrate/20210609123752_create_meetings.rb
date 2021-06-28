@@ -3,7 +3,7 @@ class CreateMeetings < ActiveRecord::Migration[5.2]
     create_table :meetings do |t|
       t.string :name
       t.datetime :start_time
-
+      t.integer :user_id
       t.timestamps
     end
   end

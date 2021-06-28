@@ -27,6 +27,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
+  has_many :meetings, dependent: :destroy
+
   def active_for_authentication
     super && (is_valid == false)
   end
