@@ -6,8 +6,12 @@ class SharingsController < ApplicationController
   def create
     @sharing = Sharing.new(sharing_params)
     @sharing.user_id = current_user.id
-    @sharing.save
-    redirect_to user_path(current_user)
+    if  @sharing.save
+        redirect_to user_path(current_user)
+    else
+      flash[:notice] = "メールアドレスが重複しているか空白です。"
+      render :new
+    end
   end
 
   def edit
